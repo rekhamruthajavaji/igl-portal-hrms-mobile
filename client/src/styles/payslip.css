@@ -1,0 +1,113 @@
+/* ===== Payslip (matches the printed salary-slip layout) ===== */
+.payslip-modal {
+  background: #fff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 92vh;
+  overflow: auto;
+  box-shadow: var(--shadow-lg);
+}
+.payslip-bar {
+  position: sticky; top: 0; z-index: 2;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 18px;
+  background: #0b1020;
+  color: #fff;
+  border-radius: 12px 12px 0 0;
+}
+.payslip-bar h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.payslip-bar .actions { display: flex; gap: 8px; }
+
+.payslip {
+  --ps-ink: #2b2f3a;
+  --ps-mute: #8a90a0;
+  --ps-line: #e4e7ee;
+  --ps-green: #2fae66;
+  --ps-green-bg: #eafaf0;
+  font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--ps-ink);
+  background: #fff;
+  padding: 40px 44px 34px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+/* Header */
+.ps-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+.ps-brand { display: flex; align-items: flex-start; gap: 16px; }
+.ps-logo-img { height: 48px; width: auto; display: block; }
+.ps-company h1 { margin: 0; font-size: 18px; font-weight: 800; letter-spacing: 0.2px; color: #1f2430; }
+.ps-company p { margin: 2px 0 0; font-size: 12px; color: #6b7180; }
+.ps-period { text-align: right; flex-shrink: 0; }
+.ps-period .lbl { font-size: 13px; color: #6b7180; }
+.ps-period .mon { font-size: 17px; font-weight: 700; color: #1f2430; margin-top: 2px; }
+
+.ps-rule { border: none; border-top: 1px solid var(--ps-line); margin: 22px 0; }
+.ps-rule-dashed { border: none; border-top: 1px dashed var(--ps-line); margin: 26px 0 0; }
+
+.ps-section-title { font-size: 12px; font-weight: 700; letter-spacing: 0.6px; color: #3a3f4c; margin-bottom: 16px; }
+
+/* Employee summary */
+.ps-summary { display: grid; grid-template-columns: 1fr 320px; gap: 24px; align-items: start; }
+.ps-kv { display: grid; grid-template-columns: 140px 12px 1fr; row-gap: 13px; align-items: baseline; }
+.ps-kv .k { color: #8a90a0; font-size: 13px; }
+.ps-kv .c { color: #8a90a0; }
+.ps-kv .v { color: #2b2f3a; font-weight: 600; }
+
+.ps-netbox { border: 1px solid #cde8d8; border-left: 5px solid var(--ps-green); background: var(--ps-green-bg); border-radius: 8px; padding: 18px 20px; }
+.ps-netbox .amt { font-size: 26px; font-weight: 800; color: #1f2937; letter-spacing: -0.5px; }
+.ps-netbox .cap { font-size: 13px; color: #6b7180; margin-top: 2px; }
+.ps-netbox hr { border: none; border-top: 1px dashed #bcd9c7; margin: 16px 0; }
+.ps-netbox .nrow { display: flex; justify-content: space-between; font-size: 13px; padding: 4px 0; }
+.ps-netbox .nrow .k { color: #6b7180; }
+.ps-netbox .nrow .v { color: #2b2f3a; font-weight: 600; }
+
+/* PF / UAN / Bank / PAN block */
+.ps-idblock { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; row-gap: 13px; margin-top: 4px; }
+.ps-idrow { display: grid; grid-template-columns: 130px 12px 1fr; align-items: baseline; }
+.ps-idrow .k { color: #8a90a0; font-size: 13px; }
+.ps-idrow .c { color: #8a90a0; }
+.ps-idrow .v { color: #2b2f3a; font-weight: 600; }
+
+/* Earnings / Deductions */
+.ps-ed { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--ps-line); border-radius: 6px; overflow: hidden; }
+.ps-ed-col:first-child { border-right: 1px solid var(--ps-line); }
+.ps-ed-head { display: grid; grid-template-columns: 1fr auto auto; gap: 18px; padding: 11px 16px; border-bottom: 1px dashed var(--ps-line); font-size: 11.5px; font-weight: 700; letter-spacing: 0.4px; color: #3a3f4c; }
+.ps-ed-head .a, .ps-ed-head .y { min-width: 78px; text-align: right; }
+.ps-ed-row { display: grid; grid-template-columns: 1fr auto auto; gap: 18px; padding: 11px 16px; font-size: 13px; }
+.ps-ed-row .lab { color: #3a3f4c; }
+.ps-ed-row .a, .ps-ed-row .y { min-width: 78px; text-align: right; font-variant-numeric: tabular-nums; }
+.ps-ed-row .a { color: #2b2f3a; }
+.ps-ed-row .y { color: #8a90a0; }
+.ps-ed-foot { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 13px 16px; background: #f6f7f9; font-weight: 700; font-size: 13px; }
+.ps-ed-foot .amt { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Net payable */
+.ps-netpayable { display: flex; align-items: stretch; justify-content: space-between; border: 1px solid var(--ps-line); border-radius: 6px; margin-top: 22px; overflow: hidden; }
+.ps-netpayable .left { padding: 16px 18px; }
+.ps-netpayable .left b { display: block; font-size: 14px; color: #1f2430; }
+.ps-netpayable .left span { font-size: 12px; color: #8a90a0; }
+.ps-netpayable .right { display: flex; align-items: center; padding: 0 24px; background: #d8f6e3; font-size: 20px; font-weight: 800; color: #147a44; letter-spacing: -0.3px; }
+
+.ps-words { text-align: right; font-size: 12.5px; color: #6b7180; margin-top: 16px; }
+.ps-words b { color: #2b2f3a; }
+
+.ps-foot { text-align: center; font-size: 11px; color: #aab0bd; margin-top: 26px; border-top: 1px dashed var(--ps-line); padding-top: 14px; }
+
+@media (max-width: 640px) {
+  .ps-summary { grid-template-columns: 1fr; }
+  .ps-idblock { grid-template-columns: 1fr; }
+  .ps-ed { grid-template-columns: 1fr; }
+  .ps-ed-col:first-child { border-right: none; border-bottom: 1px solid var(--ps-line); }
+  .payslip { padding: 24px 20px; }
+}
+
+/* Print: a cloned copy of the payslip is placed here (outside the app) so it prints exactly once. */
+.payslip-print-holder { display: none; }
+@media print {
+  body.printing > #root { display: none !important; }
+  .payslip-print-holder { display: block !important; }
+  .payslip-print-holder .payslip { box-shadow: none; padding: 8px 12px; }
+  @page { margin: 12mm; }
+}

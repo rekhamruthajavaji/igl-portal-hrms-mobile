@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.env.local
+server/data/hrms.db
+server/data/hrms.db-journal
+server/data/hrms.db-wal
+server/data/hrms.db-shm
+server/data/uploads/
+.vite/
+.DS_Store
+*.log
+.claude/
+
+.idea/
